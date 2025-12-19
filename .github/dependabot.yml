@@ -1,7 +1,12 @@
+# ./github/workflows/dependabot.yml
 version: 2
 updates:
   - package-ecosystem: "github-actions"
-    directories:
-      - "/prsk-pr-labeling"
+    directory: "/.github/workflows"
     schedule:
       interval: "weekly"
+  - package-ecosystem: "github-actions"
+    directory: "/prsk-pr-labeling"
+    schedule:
+      interval: "weekly"
+  
