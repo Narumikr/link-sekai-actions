@@ -24,9 +24,7 @@
 
 ### 🎪 **_How to use_** 🎪![WONDERLANDS-SHOWTIME-divider](https://capsule-render.vercel.app/api?type=rect&height=2&color=0:ff9900,100:f5f5f7)
 
-### セットアップ方法
-
-1. **リポジトリへのワークフロー追加**
+#### リポジトリへのワークフロー追加
 
 リポジトリの `.github/workflows/` ディレクトリに以下のようなワークフローファイルを作成します：
 
