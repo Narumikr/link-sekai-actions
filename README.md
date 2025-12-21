@@ -1,35 +1,28 @@
-# link-sekai-actions
+![Glow up with...](https://capsule-render.vercel.app/api?type=waving&height=250&color=0:33dd99,100:bb88ee&text=Connection&section=header&reversal=false&fontColor=f5f5f7&fontSize=50&animation=fadeIn&desc=Link%20another%20world&descSize=0&fontAlign=45&fontAlignY=45&descAlign=55&descAlignY=60)
 
-GitHub ActionsでPull Requestにプロジェクトセカイのキャラクターラベルをランダムに付与するアクションです。
+# **_link-sekai-actions_**
 
-## 📝 どういう思いで制作をしたのか
+![welcome comment](https://readme-typing-svg.herokuapp.com?color=%23884499&width=500&lines=「さあ、推し活を始めよう。」;大丈夫&nbsp;世界はこんなに綺麗だと;)
 
-> TODO: ここに制作の動機や背景を記載
+### 💫 **_Behind the Scenes_** 💫![Leo/need-divider](https://capsule-render.vercel.app/api?type=rect&height=2&color=0:3367cc,100:f5f5f7)
 
-## 🎵 どういったものを提供しているのか
+推しキャラ、みんなの”好き”を普段の開発作業とつなげられたらなと
 
-**link-sekai-actions**は、GitHubリポジトリのPull Requestが開かれた際に、プロジェクトセカイ（プロセカ）のキャラクターラベルを自動で付与するGitHub Actionsです。
+### 🎤 **_What we provide_** 🎤![VIVID-BAD-SQUAD-divider](https://capsule-render.vercel.app/api?type=rect&height=2&color=0:ee1166,100:f5f5f7)
 
-### 主な機能
+### link-sekai-actions
 
-- **ランダムキャラクター選出**: PRが開かれると、20人のプロセカキャラクターの中からランダムに1人が選ばれ、ラベルとして付与されます
-- **応援コメント**: 選ばれたキャラクターからPR作成者への応援メッセージがコメントとして投稿されます
-- **ボカロとの出会いイベント**: 25%の確率で、6人のVOCALOIDキャラクター（初音ミク、鏡音リン/レン、巡音ルカ、MEIKO、KAITO）も登場します
-- **コラボストーリー**: 出会いイベント発生時には、特別なストーリーとともに2人のキャラクターからメッセージが届きます
+- Pull Requestが開かれた際に、プロセカのキャラクターラベルを自動で付与する
+- Pull Requestが開かれた際に。プロセカのキャラクターが応援のコメントをしてくれる
 
-### キャラクター一覧
+#### Feature
 
-#### プロセカキャラクター (20人)
-- Leo/need: 星乃一歌、天馬咲希、望月穂波、日野森志歩
-- MORE MORE JUMP!: 花里みのり、桐谷遥、桃井愛莉、日野森雫
-- Vivid BAD SQUAD: 小豆沢こはね、白石杏、東雲彰人、青柳冬弥
-- ワンダーランズ×ショウタイム: 天馬司、鳳えむ、草薙寧々、神代類
-- 25時、ナイトコードで。: 宵崎奏、朝比奈まふゆ、東雲絵名、暁山瑞希
+- **ランダムキャラクター選出** : PRが開かれると、プロセカキャラクターの中からランダムに1人が選ばれ、ラベルが自動で作成され、PRに付与されます
+- **応援コメント** : 選ばれたキャラクターからPR作成者への応援メッセージがコメントとして投稿されます
+- **ボカロとの出会いイベント** : 一定の確率で、VOCALOIDキャラクターも登場します
+- **コラボストーリー** : 出会いイベント発生時には、特別なストーリーとともに2人のキャラクターからメッセージが届きます
 
-#### VOCALOIDキャラクター (6人)
-- 初音ミク、鏡音リン、鏡音レン、巡音ルカ、MEIKO、KAITO
-
-## 🚀 具体的な使い方
+### 🎪 **_How to use_** 🎪![WONDERLANDS-SHOWTIME-divider](https://capsule-render.vercel.app/api?type=rect&height=2&color=0:ff9900,100:f5f5f7)
 
 ### セットアップ方法
 
@@ -56,70 +49,18 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Add prsk label
+      - name: Set prsk label
         uses: Narumikr/link-sekai-actions/prsk-pr-labeling@v1
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 ```
 
-> **Note**: `@v1`の部分には、利用したいバージョンタグを指定してください（例: `@v1`, `@v1.0.0`など）。最新のリリースバージョンは[Releases](https://github.com/Narumikr/link-sekai-actions/releases)ページで確認できます。
+> [!note]
+> `@v1`の部分には、利用したいバージョンタグを指定してください（例: `@v1`, `@v1.0.0`など）。最新のリリースバージョンは[Releases](https://github.com/Narumikr/link-sekai-actions/releases)ページで確認できます。
 
-2. **動作確認**
+**※ファンメイド作品です**
 
-Pull Requestを開くと、自動的にキャラクターラベルとコメントが追加されます。
+私の大好きなプロセカという作品、でもｲﾗｽﾄは描けない、書き物や工作なども難しい。
+でも何かしら創作をしたいという想いから作り始めました💫
 
-### カスタマイズ
-
-#### 出会い確率の変更
-
-デフォルトではVOCALOIDキャラクターとの出会いは25%の確率で発生します。この確率を変更したい場合は、`prsk-pr-labeling/prsk-labeling-logic.js`の`isEncounter`関数の引数を変更してください。
-
-## 🛠️ 技術スタック
-
-- **GitHub Actions**: CI/CDプラットフォーム
-- **JavaScript (ES6+)**: アクションのロジック実装
-- **actions/github-script@v8**: GitHub APIとの連携
-- **Composite Actions**: 再利用可能なアクションの構成
-
-### 主要な依存関係
-
-- `actions/checkout@v4`: リポジトリのチェックアウト
-- `actions/github-script@v8`: GitHub APIへのアクセスとスクリプト実行
-
-## 📂 プロジェクト構成
-
-```
-.
-├── .github/
-│   ├── workflows/
-│   │   ├── prsk-pr-labeling.yml    # サンプルワークフロー
-│   │   └── auto-release.yml         # 自動リリースワークフロー
-│   └── dependabot.yml               # Dependabot設定
-└── prsk-pr-labeling/
-    ├── action.yml                    # アクションのメタデータ
-    ├── prsk-yell-label.constants.js  # キャラクター定義
-    └── prsk-labeling-logic.js        # メインロジック
-```
-
-## 🎨 特徴
-
-### カラフルなラベル
-各キャラクターには個別のカラーコードが設定されており、PRが見やすく楽しくなります。
-
-### パーソナライズされたメッセージ
-すべてのキャラクターが、PR作成者の名前を含んだ個別のメッセージを持っています。
-
-### 特別なイベント
-25%の確率で発生する出会いイベントでは、5種類のコラボストーリーからランダムに1つが選ばれ、特別な体験が提供されます。
-
-## 📄 ライセンス
-
-このプロジェクトは個人利用を目的としています。プロジェクトセカイのキャラクターおよび関連する知的財産は、SEGA/Colorful Paletteに帰属します。
-
-## 🤝 コントリビューション
-
-Issue、Pull Requestは歓迎します！
-
----
-
-Made with ❤️ for Project SEKAI fans
+**※本リポジトリはプロセカ公式とは一切関係ありません**
