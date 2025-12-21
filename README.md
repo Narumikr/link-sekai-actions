@@ -2,7 +2,7 @@
 
 # **_link-sekai-actions_**
 
-![welcome comment](https://readme-typing-svg.herokuapp.com?color=%23884499&width=500&lines=「さあ、推し活を始めよう。」;大丈夫&nbsp;世界はこんなに綺麗だと;)
+![welcome comment](https://readme-typing-svg.herokuapp.com?color=%23ffc096&width=500&lines=「さあ、推し活を始めよう。」;大丈夫&nbsp;世界はこんなに綺麗だと;)
 
 ### 💫 **_Behind the Scenes_** 💫![Leo/need-divider](https://capsule-render.vercel.app/api?type=rect&height=2&color=0:3367cc,100:f5f5f7)
 
