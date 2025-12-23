@@ -1,0 +1,21 @@
+# .github/workflows/prsk-dependabot.yml
+name: Dependabot PR with prsk
+
+on:
+  pull_request:
+    types: [opened]
+
+jobs:
+  rename-pr:
+    if: github.actor == 'dependabot[bot]'
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Rename PR Title with prsk
+        uses: ./prsk-dependabot
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}

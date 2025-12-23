@@ -17,7 +17,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
 
-      - name: Add prsk label
+      - name: Set prsk label
         uses: ./prsk-pr-labeling
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}

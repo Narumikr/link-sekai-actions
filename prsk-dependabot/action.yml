@@ -1,0 +1,46 @@
+name: 'Notice Update for Dependabot with Project SEKAI'
+description: 'Rename pull request titles created by Dependabot with Project SEKAI'
+author: 'Narumikr'
+
+inputs:
+  github-token:
+    description: 'GitHub token for API access'
+    required: true
+    default: ${{ github.token }}
+
+runs:
+  using: "composite"
+  steps:
+    - name: Rename PR Title
+      uses: actions/github-script@v7
+      with:
+        github-token: ${{ inputs.github-token }}
+        script: |
+          const { parseDependabotTitle, loadCharacters, selectRandomCharacter, generateNewTitle } = require('${{ github.action_path }}/prsk-pr-rename.js');
+
+          const pr = context.payload.pull_request;
+          const oldTitle = pr.title;
+
+          const libraryInfo = parseDependabotTitle(oldTitle);
+
+          if (libraryInfo) {
+            console.log(`Updated Library: ${libraryInfo.library}`);
+            console.log(`Version: ${libraryInfo.fromVersion} → ${libraryInfo.toVersion}`);
+
+            const characters = loadCharacters('${{ github.action_path }}');
+            const character = selectRandomCharacter(characters);
+            const newTitle = generateNewTitle(libraryInfo, character);
+
+            console.log(`New title: ${newTitle}`);
+
+            await github.rest.pulls.update({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: pr.number,
+              title: newTitle
+            });
+          } else {
+            console.log(
+              `PR title "${oldTitle}" does not match the expected Dependabot format; skipping rename.`
+            );
+          }
