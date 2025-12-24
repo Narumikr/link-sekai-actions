@@ -111,22 +111,3 @@ jobs:
           git push origin $MAJOR_TAG --force
           
           echo "✅ Updated $MAJOR_TAG to point to $NEW_TAG"
-
-      - name: Create GitHub Release
-        uses: actions/github-script@v8
-        with:
-          script: |
-            const newTag = '${{ steps.get-latest-tag.outputs.new_tag }}';
-            const majorVersion = '${{ steps.detect-major.outputs.major_version }}';
-            
-            await github.rest.repos.createRelease({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              tag_name: newTag,
-              name: newTag,
-              body: `Automated release for v${majorVersion} with dependency updates and bug fixes.`,
-              draft: false,
-              prerelease: false
-            });
-            
-            console.log(`✅ Created release for ${newTag}`);
