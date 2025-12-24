@@ -1,5 +1,5 @@
 # .github/workflows/prsk-dependabot.yml
-name: Dependabot PR with prsk
+name: prsk notice dependabot PR
 
 on:
   pull_request:
